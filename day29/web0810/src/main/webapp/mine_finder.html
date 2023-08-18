@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>지뢰찾기</title>
+<style>
+	fieldset{
+		width:406px;
+	}
+	#field{
+		margin:auto;
+	}
+	#field > button {
+		width:40px;
+		height:40px;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script>
+	let mine_row=0;
+	let mine_col=0;
+
+	function init_mine(){
+		mine_row= Math.floor(Math.random()*10+1)//1~10사이 난수
+		mine_col= Math.floor(Math.random()*10+1)//1~10사이 난수
+	}
+	function init_button(){
+		let field = $("#field")
+		//필드 내 모든 태그 삭제
+		field.empty() //해당태그가 갖고있는 모든 태그 삭제 empty()
+		let html = "";
+		//10행 10열
+		for(let row=1;row<=10;row++){
+			for(let col=1;col<=10;col++){
+				html += "<button data-row='"+row+"'"
+				html += " data-col='"+col+"'> ? </button>"
+			}//end col
+		}//end row
+		field.html(html)
+	}//init_button()
+	
+	function init_event(){ //이벤트 등록
+		$("#field > button").click(function(){
+			let row = $(this).data("row") //data-XXX 속성 접근
+			let col = $(this).data("col") //data-XXX 속성 접근
+			$("#result").html("row="+row+", col="+col)
+			//지뢰위치와 버튼위치간의 직선거리를 정수로 게산, ? 대신 거리를 출력(반올림)
+			let x = Math.abs(mine_row-row)
+			let y = Math.abs(mine_col-col)
+			let result = Math.round(Math.sqrt((x*x)+(y*y)))
+			$(this).html(result)
+			$(this).css("border","2px solid red")
+			if(result==0){ //지뢰를 찾으면
+				alert("추카추카~~ 지뢰를 찾았습니다")
+				init_button() //새로운 버튼
+				init_mine() //새로운 좌표
+				init_event(); //이벤트 등록
+			}
+		})
+	}//init_event()
+	
+	$(function(){
+		init_mine();
+		init_button();
+		init_event();
+	})
+</script>
+</head>
+<body>
+	
+	<h1>지뢰찾기</h1>
+	<div id="result"></div>
+	<fieldset>
+		<legend>지뢰밭</legend>
+		<div id="field"></div>
+	</fieldset>
+</body>
+</html>
