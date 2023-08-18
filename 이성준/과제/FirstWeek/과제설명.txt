@@ -1,0 +1,2 @@
+BankService 생성자에다 테스트 코드 삽입
+getAccountList 전체목록 accountList를 리턴

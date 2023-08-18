@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script>
+	let count = 0
+	//jQuery 초기화함수
+	$(function(){ 
+		//$("button").html("jQuery") //내용변경
+		$("button").click(function(){
+			count++
+			alert(count)
+		})
+	});
+	//자바스크립트 초기화함수(페이지로딩완료 후 자동실행하는 함수)
+	//window.onload = function(){
+	//	$("button").html("Finish")
+	//}
+</script>
+</head>
+<body>
+	<button>OK</button>
+	<button>OK</button>
+	<button>OK</button>
+</body>
+</html>

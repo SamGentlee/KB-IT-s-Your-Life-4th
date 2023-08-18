@@ -1,0 +1,9 @@
+#footer ul{
+	padding-left: 0;
+	list-style-type: none;
+	text-align: right;
+	margin: 10px 0;
+	padding-right:5px;
+	font-size: 0.8em;
+	color:darkgreen;
+}
