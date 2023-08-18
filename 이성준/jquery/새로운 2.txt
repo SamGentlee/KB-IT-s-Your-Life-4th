@@ -1,3 +1,0 @@
-https://testuser.tistory.com/entry/jquery-ppt
-jquery cheat sheet - 정리해 놓은 사이트
-https://oscarotero.com/jquery/
