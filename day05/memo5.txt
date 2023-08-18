@@ -1,0 +1,236 @@
+day01
+
+설치 sw
+notepad++, everything, 반디집
+
+자바 기본 과목 범위:
+구문 ~ 상속, 인터페이스 -> 웹개발을 위한 자바
+GUI, IO, Network -> 애플리케이션 개발을 위한 자바(목표-채팅서버,클라이언트)
+
+마크다운 
+```java 
+~ 
+```
+
+C언어 : Process: 4가지영역(영역별 최대 1GB)
+Code Segment
+Data Segment
+Heap
+Stack
+
+Java : 3가지영역
+Method(Static, Class)Area
+Heap
+Stack
+///////////////////////////
+
+day02
+
+메모리 자동관리기능은 Heap영역에만 적용
+
+정올, 백준-- 코테대비
+///////////////////////////
+
+day03
+
+OOP 3대특징
+1. 캡슐화(EnCapsulation) - 객체의 중요한 속성을 감추는 것.	
+(접근지정자 - private(같은 클래스), (생략)(같은 패키지), protected(같은패키지이거나 자식객체), public(아무패키지, 아무클래스))
+	- 목적 : 잘못된 정보변경 방지
+	- ex) 한국사람 h = 김길동;
+	      h.주민번호 = 1212; 주민번호는 객체 생성할 때 선언가능하지만 중간에 바꾸지 못함.
+		  
+2. 상속성(Inheritance) - 다른 객체의 기능을 그대로 가져오는 것.
+	- 목적 : 빠른 개발
+	
+3. 다형성(Polymorphism) - 한가지 타입의 변수에 여러가지 객체를 대입하는 것.
+	- 목적 : 한개 변수를 다목적으로 사용(빠른 개발)
+	- ex) 김씨 g = 김영환;
+		  g = 김길동;
+		
+		  동물 d = 사자;
+		  d = 개;
+
+- 한 사람의 이름
+String name = "김길동";
+
+- 여러 사람의 이름 - 배열(같은 타입의 연속적인 변수 모음)
+String[] names = {"김길동", "홍길동"};
+
+- 여러 타입을 하나로 묶음 : 클래스
+class Person{
+		String name;
+		int age;
+}
+
+public class 클래스명 - 클래스명 바꿀수 없음(소스파일명과 클래스명이 같아야한다.)
+class 클래스명 - 클래스명 바꿀 수 있음
+
+**클래스의 4가지 스타일(종류)**
+1. VO(Value Object), DTO(Data Transfer Object) - 데이터 저장용(Entity Class)
+- ex)	
+	부서 : 영업부, 이름 : 김길동, 직급 : 대리
+	부서 : 개발부, 이름 : 박길동, 직급 : 대리
+2. Manager,DAO(Data Access Object) - VO에 대한 관리기능(CRUD : Create, Read, Update, Delete)
+3. UI - 입출력 인터페이스(CUI, GUI, WebUI) 
+4. IO - 데이터 입출력
+
+객체생성과정
+Person p1 = new Person();
+1. 클래스 로딩 
+2. 힙영역에 메모리 할당(객체생성)
+3. 필드에 기본초기값 할당
+4. 명시적 초기값 할당
+5. 생성자 실행 
+
+Singleton Pattern - 객체를 1개만 생성해야하는경우(private 생성자 사용)
+
+자바 심화 공부
+1. 이펙티브 자바(도서)
+2. 리팩토링(도서)
+3. 디자인패턴(도서)
+4. 엔터프라이즈 디자인패턴(도서) 
+
+생성자 오버로딩의 규칙
+1. 이름 동일
+2. 매개변수 다름(타입 또는 순서, 갯수)
+	- 매개 변수 이름은 무관
+	ex)
+	 public Person()  // 매핑 - Person()
+	 public Person(String name, int age) // 매핑 - Person_String_int()
+	 public Person(String name2, int age2) // 매핑 - Person_String_int()
+	 
+Class는 Object의 Template이고
+Object는 Class의 Instance이다.
+
+static 메소드는 static 변수만 직접 접근 가능
+- ex)
+	class A{
+		static int i = 0;
+		static void a(){
+			i++;
+		}	
+	}
+static 메소드는 non-static변수는 직접접근불가
+- ex)
+	class A{
+		int i = 0;
+		static void a(){
+			i++; //구문 오류 : static 메소드는 메소드 영역에 클래스가 로딩될때 생성되지만, i는 클래스가 로딩될때 없기때문에 불가능
+		}	
+	}
+//////////////////////////////////////////
+
+day04
+
+quiz
+1.
+메소드 오버로딩
+리턴타입 - 무관
+메소드이름 - 동일
+타입 변수 - 타입, 개수, 순서 달라야함
+
+2. int[][] 의 int[0]의 타입은 int[]이다.
+
+객체배열
+Manager/Service 클래스 작성
+상속, 추상, 인터페이스, 다형성
+컬렉션 API(ArrayList, HashMap, TreeSet, Comparable, Comparator)
+
+객체배열
+기본타입의 배열 : int[], ...
+클래스, 객체 -> 객체 배열
+
+클래스 종류 4가지
+1. VO - 데이터 저장용
+2. Manager/Service - VO의 CRUD용
+3. UI
+4. IO
+
+파라미터가 같으면 오버라이딩 다르면 오버로딩
+오버라이딩 
+	- 부모 메소드의 선언부(리턴타입, 메소드이름, 매개변수)와 동일해야한다.
+	- 접근 제한을 더 강하게 오버라이딩할 수 없다.(public -> private 불가능)
+
+Final	
+클래스의 final을 붙이면 상속불가능 (=최종적인 클래스)
+메소드의 final을 붙이면 오버라이딩 불가능
+변수의 final을 붙이면 값 초기화 불가능
+
+Person(부모)
+Emp(자식)
+부모로 올라갈수록 기능은 줄어들지만, 타입은 늘어나고
+자식으로 내려갈수록 기능은 늘어나지만, 타입은 줄어든다.
+ Person p = new Emp(); - 형변환(Up-Casting)
+ Up-Casting의 목적 : 편리한 관리
+ 
+프레임워크 - 쓰는 법을 배워야함
+//////////////////////////////////////
+
+day05
+
+Quiz
+List(순서지원, 번호대로 추가,삭제,수정,검색, 중복저장)
+Set(순서미지원, 중복배제)
+
+today
+java.lang(String, Object, Wrapper Class)
+interface, CollectionAPI
+Comparable, Comparator
+FileIO(BufferedReader)
+
+interface - 객체의 형변환 
+	public static void main(String[] args){
+		박태환선수 bt = new 박태환선수();
+		수영선수 s1;
+		s1 = bt;
+		
+		야구선수 b1;
+		b1 = bt;
+		
+		s1.swimming(); // 타입상으로는 수영선수이므로 swimming()메소드밖에 없다
+		b1.공던지기(); //야구선수 타입이므로 공던지기()메소드밖에 없다.
+		bt.swimming();
+		bt.공던지기();  //두가지 메소드 다 가능
+	}
+	
+}
+interface 수영선수{
+	public void swimming();
+	
+}
+interface 야구선수{
+	public void 공던지기();
+}
+class 박태환선수 implements 수영선수, 야구선수{
+	public void swimming() {
+		System.out.println("수영하기");
+	}
+	public void 공던지기() {
+		System.out.println("공던지기");
+	}
+}
+
+도서판매점 관리 프로그램을 작성한다.
+도서관리, 회원관리, 판매관리를 할 수 있는 프로그램을 작성.
+도서 : BookDto{ String isbn, String title, int price }
+회원 : MemberDto{ int no, String name, int tel }
+판매 : SaleDto{ int mno, String isbn, int quantity }
+BookStoreService{
+	ArrayList<BookDto> bookList = new ArrayList<BookDto>();
+	ArrayList<MemberDto> memberList = new ArrayList<MemberDto>();
+	ArrayList<SaleDto> saleList = new ArrayList<SaleDto>();
+	
+	public BookStoreService(){
+		bookList.add(new BookDto("123","자바기본",20000));
+		bookList.add(new BookDto("456","자바심화",30000));
+		bookList.add(new BookDto("789","파이썬기본",25000));
+		memberList.add(new MemberDto(1001,"홍길동","010-1111-1111"));
+		memberList.add(new MemberDto(1002,"최길동","010-2222-2222"));
+		memberList.add(new MemberDto(1003,"박길동","010-3333-3333"));
+		saleList.add(new SaleDto(1001,"123",2));
+		saleList.add(new SaleDto(1001,"456",5));
+		saleList.add(new SaleDto(1002,"789",2));
+		saleList.add(new SaleDto(1003,"456",1));
+	}
+}
