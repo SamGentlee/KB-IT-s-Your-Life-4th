@@ -1,0 +1,27 @@
+설치 sw
+notepad++, everything, 반디집
+
+자바 기본 과목 범위:
+구문 ~ 상속, 인터페이스 -> 웹개발을 위한 자바
+GUI, IO, Network -> 애플리케이션 개발을 위한 자바(목표-채팅서버,클라이언트)
+
+마크다운 
+```java 
+~ 
+```
+
+C언어 : Process: 4가지영역(영역별 최대 1GB)
+Code Segment
+Data Segment
+Heap
+Stack
+
+Java : 3가지영역
+Method(Static, Class)Area
+Heap
+Stack
+
+메모리 자동관리기능은 Heap영역에만 적용
+
+정올- 코테대비
+
